@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/MenuSchema"
+	xmlns:tns="http://www.example.org/MenuSchema" elementFormDefault="qualified">
+
+
+	<element name="menu">
+		<complexType>
+			<sequence>
+				<element name="food" type="tns:Food" minOccurs="1"
+					maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+	<complexType name="Food">
+		<sequence minOccurs="1" maxOccurs="unbounded">
+			<element name="type" type="tns:Type" />
+			<element name="photo" type="string" />
+			<element name="name" type="tns:Name" />
+			<element name="description" type="tns:Description" />
+			<element name="portion" type="tns:Portion" />
+			<element name="price" type="tns:Price" />
+		</sequence>
+		<attribute name="ID" type="ID" use="required" />
+	</complexType>
+	<simpleType name="Type">
+		<restriction base="string">
+			<enumeration value="Холодные закуски" />
+			<enumeration value="Горячие закуски" />
+			<enumeration value="Завтраки" />
+			<enumeration value="Салаты"></enumeration>
+		</restriction>
+	</simpleType>
+	<simpleType name="Name">
+		<restriction base="string">
+			<minLength value="1"></minLength>
+			<maxLength value="20"></maxLength>
+		</restriction>
+	</simpleType>
+	<simpleType name="Description">
+		<restriction base="string">
+			<minLength value="1"></minLength>
+			<maxLength value="60"></maxLength>
+		</restriction>
+	</simpleType>
+	<simpleType name="Portion">
+		<restriction base="string">
+			<pattern value="50|100|150|1шт.|2шт." />
+		</restriction>
+	</simpleType>
+	<simpleType name="Price">
+		<restriction base="integer">
+			<minExclusive value="200000"></minExclusive>
+			<maxExclusive value="1000000"></maxExclusive>
+		</restriction>
+	</simpleType>
+</schema>
