@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<m:menu xmlns:m="http://training.by/XML_XDS_DOM_Parser"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://training.by/XML_XDS_DOM_Parser menu.xsd">
+    <kind>
+        <kind-name>Холодные закуски</kind-name>
+        <kind-content>
+            <dish>
+                <dish-photo>madeDish.jgp</dish-photo>
+                <dish-name>Ассорти рыбное</dish-name>
+                <dish-description>Слабосоленая форель, семга</dish-description>
+                <dish-portion>100/20/15</dish-portion>
+                <dish-price>800</dish-price>
+            </dish>
+            <dish>
+                <dish-photo>basturma.jpg</dish-photo>
+                <dish-name>Бастурма</dish-name>
+                <dish-description>Вяленая вырезка из говяжьего мяса</dish-description>
+                <dish-portion>50/5</dish-portion>
+                <dish-price>600</dish-price>
+            </dish>
+            <dish>
+                <dish-photo>seniorTomato.jgp</dish-photo>
+                <dish-name>Сеньор Помидор</dish-name>
+                <dish-description>Помидор, фаршированный сырным муссом</dish-description>
+                <dish-portion>150/1</dish-portion>
+                <dish-price>150</dish-price>
+            </dish>
+        </kind-content>
+    </kind>
+    <kind>
+        <kind-name>Горячие закуски</kind-name>
+        <kind-content>
+            <dish>
+                <dish-photo>julien.jgp</dish-photo>
+                <dish-name>Жульен</dish-name>
+                <dish-description>с курицей</dish-description>
+                <dish-portion>120/1</dish-portion>
+                <dish-price>145</dish-price>
+            </dish>
+            <dish>
+                <dish-photo>escargo.jgp</dish-photo>
+                <dish-name>Эскарго</dish-name>
+                <dish-description>Виноградные улитки, фаршированные по бургундски</dish-description>
+                <dish-portion>12 шт.</dish-portion>
+                <dish-price>230</dish-price>
+            </dish>
+        </kind-content>
+    </kind>
+</m:menu>
+
+
+<type>Холодные закуски</type>
+		<photo>photo</photo>
+		<name>Асорти рыбное</name>
+		<description>Слабосоленая форель</description>
+		<portion>100</portion>
+		<price>500000</price>
+	</food>
+	<food ID="id_2">
+		<type>Холодные закуски</type>
+		<photo>photo</photo>
+		<name>Закуска по русски</name>
+		<description>Кусочки атлантичекой сельди с отварным картофелем</description>
+		<portion>1шт.</portion>
+		<price>540000</price>
+	</food>
+	<food ID="id_3">
+		<type>Холодные закуски</type>
+		<photo>photo</photo>
+		<name>Брынза</name>
+		<description>Рассольный сыр, из овечьего молока</description>
+		<portion>150</portion>
+		<price>900000</price>
+	</food>
+	<food ID="id_4">
+		<type>Холодные закуски</type>
+		<photo>photo</photo>
+		<name>Сеньор Помидор</name>
+		<description>Помидор фаршированный сырным муссом</description>
+		<portion>150</portion>
+		<price>800000</price>
+	</food>
+	<food ID="id_5">
+		<type>Горячие закуски</type>
+		<photo>photo</photo>
+		<name>Жульен</name>
+		<description>С курицей либо грибами</description>
+		<portion>1шт.</portion>
+		<price>740000</price>
+	</food>
+	<food ID="id_6">
+		<type>Горячие закуски</type>
+		<photo>photo</photo>
+		<name>Ахмат мясной</name>
+		<description>Колбаса, ветчина, буженина, сыр запеченый</description>
+		<portion>2шт.</portion>
+		<price>340000</price>
+	</food>
+	<food ID="id_7">
+		<type>Горячие закуски</type>
+		<photo>photo</photo>
+		<name>Эскарго</name>
+		<description>Виноградные улитки, фаршированные по бургундски</description>
+		<portion>150</portion>
+		<price>540000</price>
+	</food>
+	<food ID="id_8">
+		<type>Завтраки</type>
+		<photo>photo</photo>
+		<name>Глазунья</name>
+		<description>2-а яйца</description>
+		<portion>1шт.</portion>
+		<price>220000</price>
+	</food>
+	<food ID="id_9">
+		<type>Завтраки</type>
+		<photo>photo</photo>
+		<name>Омлет</name>
+		<description>Яйца,молоко,мука</description>
+		<portion>2шт.</portion>
+		<price>390000</price>
+	</food>

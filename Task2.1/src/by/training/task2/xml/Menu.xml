@@ -1,76 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <menu xmlns="http://www.example.org/MenuSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.example.org/MenuSchema MenuSchema.xsd">
-	<food ID="id_1">
-		<type>Холодные закуски</type>
-		<photo>photo</photo>
-		<name>Асорти рыбное</name>
-		<description>Слабосоленая форель</description>
-		<portion>100</portion>
-		<price>500000</price>
-	</food>
-	<food ID="id_2">
-		<type>Холодные закуски</type>
-		<photo>photo</photo>
-		<name>Закуска по русски</name>
-		<description>Кусочки атлантичекой сельди с отварным картофелем</description>
-		<portion>1шт.</portion>
-		<price>540000</price>
-	</food>
-	<food ID="id_3">
-		<type>Холодные закуски</type>
-		<photo>photo</photo>
-		<name>Брынза</name>
-		<description>Рассольный сыр, из овечьего молока</description>
-		<portion>150</portion>
-		<price>900000</price>
-	</food>
-	<food ID="id_4">
-		<type>Холодные закуски</type>
-		<photo>photo</photo>
-		<name>Сеньор Помидор</name>
-		<description>Помидор фаршированный сырным муссом</description>
-		<portion>150</portion>
-		<price>800000</price>
-	</food>
-	<food ID="id_5">
-		<type>Горячие закуски</type>
-		<photo>photo</photo>
-		<name>Жульен</name>
-		<description>С курицей либо грибами</description>
-		<portion>1шт.</portion>
-		<price>740000</price>
-	</food>
-	<food ID="id_6">
-		<type>Горячие закуски</type>
-		<photo>photo</photo>
-		<name>Ахмат мясной</name>
-		<description>Колбаса, ветчина, буженина, сыр запеченый</description>
-		<portion>2шт.</portion>
-		<price>340000</price>
-	</food>
-	<food ID="id_7">
-		<type>Горячие закуски</type>
-		<photo>photo</photo>
-		<name>Эскарго</name>
-		<description>Виноградные улитки, фаршированные по бургундски</description>
-		<portion>150</portion>
-		<price>540000</price>
-	</food>
-	<food ID="id_8">
-		<type>Завтраки</type>
-		<photo>photo</photo>
-		<name>Глазунья</name>
-		<description>2-а яйца</description>
-		<portion>1шт.</portion>
-		<price>220000</price>
-	</food>
-	<food ID="id_9">
-		<type>Завтраки</type>
-		<photo>photo</photo>
-		<name>Омлет</name>
-		<description>Яйца,молоко,мука</description>
-		<portion>2шт.</portion>
-		<price>390000</price>
-	</food>
+	<kind id="id_1">
+		<kind-name>Холодные закуски</kind-name>
+		<kind-content>
+			<dish id="asorti">
+				<photo>photo</photo>
+				<name>Асорти рыбное</name>
+				<description>Слабосоленая форель</description>
+				<portion>100</portion>
+				<price>500000</price>
+			</dish>
+			<dish id="zakuski">
+				<photo>photo</photo>
+				<name>Закуска по русски</name>
+				<description>Кусочки атлантичекой сельди с отварным картофелем</description>
+				<portion>1шт.</portion>
+				<price>540000</price>
+			</dish>
+			<dish id="zakyski2">
+				<photo>photo</photo>
+				<name>Брынза</name>
+				<description>Рассольный сыр, из овечьего молока</description>
+				<portion>150</portion>
+				<price>900000</price>
+			</dish>
+			<dish id="pomidor">
+				<photo>photo</photo>
+				<name>Сеньор Помидор</name>
+				<description>Помидор фаршированный сырным муссом</description>
+				<portion>150</portion>
+				<price>800000</price>
+			</dish>
+		</kind-content>
+	</kind>
+
+	<kind id="id_2">
+		<kind-name>Горячие закуски</kind-name>
+
+		<kind-content>
+			<dish id="zulien">
+				<photo>photo</photo>
+				<name>Жульен</name>
+				<description>С курицей либо грибами</description>
+				<portion>1шт.</portion>
+				<price>740000</price>
+			</dish>
+			<dish id="meat">
+				<photo>photo</photo>
+				<name>Ахмат мясной</name>
+				<description>Колбаса, ветчина, буженина, сыр запеченый</description>
+				<portion>2шт.</portion>
+				<price>340000</price>
+			</dish>
+			<dish id="eskato">
+
+				<photo>photo</photo>
+				<name>Эскарго</name>
+				<description>Виноградные улитки, фаршированные по бургундски</description>
+				<portion>150</portion>
+				<price>540000</price>
+			</dish>
+		</kind-content>
+
+	</kind>
+
+	<kind id="id_3">
+		<kind-name>Завтраки</kind-name>
+		<kind-content>
+			<dish id="glaza">
+				<photo>photo</photo>
+				<name>Глазунья</name>
+				<description>2-а яйца</description>
+				<portion>1шт.</portion>
+				<price>220000</price>
+			</dish>
+			<dish id="omlet">
+	<photo>photo</photo>
+	<name>Омлет</name>
+	<description>Яйца,молоко,мука</description>
+				<portion>2шт.</portion>
+				<price>390000</price>
+			</dish>
+		</kind-content>
+
+	</kind>
+
 </menu>

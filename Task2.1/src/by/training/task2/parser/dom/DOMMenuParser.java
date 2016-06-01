@@ -1,61 +1,62 @@
 package by.training.task2.parser.dom;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-import org.apache.xerces.parsers.DOMParser;
+import java.io.IOException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import by.training.task2.entity.Food;
+import by.training.task2.entity.Dish;
+import by.training.task2.entity.Menu;
+import by.training.task2.entity.Kind;
+import by.training.task2.entity.interfaces.TagNames;
 
+public class DOMMenuParser implements TagNames {
+	private static final String xmlFileURI = "src\\by\\training\\task2\\xml\\Menu.xml";
 
-public class DOMMenuParser {
-	public static Food parse(){
-		
-		return null;
-		
-	}
-	public static void main(String[] args) throws SAXException, IOException {
-		DOMParser parser = new DOMParser();
-		parser.parse("Menu.xml");
-		Document document = parser.getDocument();
-		
-		Element root = document.getDocumentElement();
-		List<Food> menu = new ArrayList<Food>();
-		
-		NodeList menuNodes = root.getElementsByTagName("food");
-		Food food = null;
-		for (int i = 0; i < menuNodes.getLength(); i++) {
-			food = new Food();
-			Element foodElement = (Element) menuNodes.item(i);
-			food.setId(foodElement.getAttribute("ID"));
-			food.setPhoto(getSingleChild(foodElement, "photo").getTextContent().trim());
-			food.setType(getSingleChild(foodElement, "type").getTextContent().trim());
-			food.setName(getSingleChild(foodElement, "name").getTextContent().trim());
-			food.setDescription(getSingleChild(foodElement, "description").getTextContent().trim());
-			food.setPortion(getSingleChild(foodElement, "portion").getTextContent().trim());
-			food.setPrice(Integer.parseInt(getSingleChild(foodElement, "price").getTextContent().trim()));
-			menu.add(food);
+	public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException {
+
+		Menu menu = new Menu();
+		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+		Document document = documentBuilder.parse(xmlFileURI);
+
+		Element menuElement = document.getDocumentElement();
+
+		 NodeList kindElements = menuElement.getElementsByTagName(KIND_TAG);
+
+		for (int i = 0; i <  kindElements.getLength(); i++) {
+			Element kindElement = (Element)  kindElements.item(i);
+			Kind kind = new Kind();
+			kind.setName(kindElement.getElementsByTagName(KIND_NAME_TAG).item(0).getTextContent());
+			menu.addKind(kind);
+
+			NodeList dishElements = kindElement.getElementsByTagName(DISH_TAG);
+			for (int j = 0; j < dishElements.getLength(); j++) {
+				Element dishElement = (Element) dishElements.item(j);
+				Dish dish = new Dish();
+				dish.setPhoto(dishElement.getElementsByTagName(PHOTO_TAG).item(0).getTextContent());
+				dish.setName(dishElement.getElementsByTagName(NAME_TAG).item(0).getTextContent());
+				dish.setDescription(dishElement.getElementsByTagName(DESCRIPTION_TAG).item(0).getTextContent());
+				dish.setPortion(dishElement.getElementsByTagName(PORTION_TAG).item(0).getTextContent());
+				dish.setPrice(Integer.parseInt(dishElement.getElementsByTagName(PRICE_TAG).item(0).getTextContent()));
+				kind.addDish(dish);
+
+			}
 		}
-		for (Food f:menu) {
-			System.out.println("id="+f.getId()+
-							"\nтип="+ f.getType()+
-							"\nназвание="+f.getName()+
-							"\nфото= "+f.getPhoto()+
-							"\nописание="+f.getDescription()+
-							"\nпорция="+f.getPortion()+
-							"\nцена="+f.getPrice()+"\n");
-			
+		System.out.println("Меню:\n");
+		for (Kind type : menu.getKinds()) {
+			System.out.println(type.getName());
+			for (Dish dish : type.getDishes()) {
+				System.out.println("Фото: " + dish.getPhoto() + " Название: " + dish.getName() + " Описание: "
+						+ dish.getDescription() + " Порция: " + dish.getPortion() + " Цена: " + dish.getPrice());
+			}
 		}
-
-	}
-	private static Element getSingleChild(Element element, String childName){
-		NodeList nlist= element.getElementsByTagName(childName);
-		Element child = (Element) nlist.item(0);
-		return child;
 	}
 
 }

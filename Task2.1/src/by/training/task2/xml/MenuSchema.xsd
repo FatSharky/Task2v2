@@ -6,30 +6,37 @@
 	<element name="menu">
 		<complexType>
 			<sequence>
-				<element name="food" type="tns:Food" minOccurs="1"
+				<element name="kind" type="tns:Kind" minOccurs="1"
 					maxOccurs="unbounded" />
 			</sequence>
 		</complexType>
 	</element>
-	<complexType name="Food">
+
+	<complexType name="Kind">
 		<sequence minOccurs="1" maxOccurs="unbounded">
-			<element name="type" type="tns:Type" />
+			<element name="kind-name" type="string" />
+			<element name="kind-content" type="tns:KindContent" />
+		</sequence>
+		<attribute name="id" type="ID" use="required" />
+	</complexType>
+
+	<complexType name="KindContent">
+		<sequence>
+			<element name="dish" type="tns:Dish" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+
+	<complexType name="Dish">
+		<sequence>
 			<element name="photo" type="string" />
 			<element name="name" type="tns:Name" />
 			<element name="description" type="tns:Description" />
 			<element name="portion" type="tns:Portion" />
 			<element name="price" type="tns:Price" />
 		</sequence>
-		<attribute name="ID" type="ID" use="required" />
+		<attribute name="id" type="ID" use="required" />
 	</complexType>
-	<simpleType name="Type">
-		<restriction base="string">
-			<enumeration value="Холодные закуски" />
-			<enumeration value="Горячие закуски" />
-			<enumeration value="Завтраки" />
-			<enumeration value="Салаты"></enumeration>
-		</restriction>
-	</simpleType>
 	<simpleType name="Name">
 		<restriction base="string">
 			<minLength value="1"></minLength>
